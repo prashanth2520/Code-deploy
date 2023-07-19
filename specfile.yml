@@ -4,7 +4,13 @@ files:
 – source:
 destination: /opt/laravel
 hooks:
-ApplicationStart:
-– location: deploy/application_start.sh
+beforeinstall:
+– location: deploy/beforeinstall.sh
 timeout: 300
 runas: ubuntu
+afterinstall: 
+- location: deploy/afterinstall.sh
+timeout: 300
+restart:
+- restart: deploy/restart.sh
+timeout: 300
