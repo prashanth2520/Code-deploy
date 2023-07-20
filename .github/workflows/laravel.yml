@@ -23,10 +23,10 @@ jobs:
 
       - name: Build .zip archive
         run: |
-          zip -r staging_code.zip .
-          echo "Successfully created staging_code.zip"
+          zip -r code_file.zip .
+          echo "Successfully created code_file.zip"
 
       - name: Upload .zip to S3
         run: |
-          aws s3 cp staging_code.zip s3://demo-code-deploy190723/staging_code.zip
-          echo "Uploaded staging_code.zip to S3 bucket"
+          aws s3 cp code_file.zip s3://demo-code-deploy190723/code_file.zip
+          echo "Uploaded code_file.zip to S3 bucket"
