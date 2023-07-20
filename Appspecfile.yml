@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/laravel/
+    overwrite: true
+hooks:
+  BeforeInstall:
+    - location: deploy/Beforeinstall.sh
+      timeout: 300
+  AfterInstall:
+    - location: deploy/Afterinstall.sh
+      timeout: 300
