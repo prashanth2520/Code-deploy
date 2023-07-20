@@ -1,0 +1,32 @@
+
+name: Upload Staging Branch Code to S3
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  build_and_upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1  
+
+      - name: Build .zip archive
+        run: |
+          zip -r staging_code.zip .
+          echo "Successfully created staging_code.zip"
+
+      - name: Upload .zip to S3
+        run: |
+          aws s3 cp staging_code.zip s3://demo-code-deploy190723/staging_code.zip
+          echo "Uploaded staging_code.zip to S3 bucket"
