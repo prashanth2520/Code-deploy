@@ -4,7 +4,7 @@ name: Upload Staging Branch Code to S3
 on:
   push:
     branches:
-      - staging
+      - main
 
 jobs:
   build_and_upload:
