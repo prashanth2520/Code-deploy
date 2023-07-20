@@ -28,5 +28,5 @@ jobs:
 
       - name: Upload .zip to S3
         run: |
-          aws s3 cp staging_code.zip s3://demoplaylist0712/staging_code.zip
+          aws s3 cp staging_code.zip s3://demo-code-deploy190723/staging_code.zip
           echo "Uploaded staging_code.zip to S3 bucket"
