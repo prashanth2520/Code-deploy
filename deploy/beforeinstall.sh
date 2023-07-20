@@ -1,5 +1,7 @@
 #!/bin/bash
-sudo apt update 
-cd /opt/laravel
-mkdir app1
-
+files:
+  - source: /
+    destination: /opt/laravel/
+    overwrite: true
+    
+    
