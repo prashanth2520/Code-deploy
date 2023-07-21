@@ -7,11 +7,11 @@ hooks:
   BeforeInstall:
     - location: deploy/beforeinstall.sh
       timeout: 300
-      runas: ec2-user
+      runas: root
   AfterInstall:
     - location: deploy/afterinstall.sh
       timeout: 300
-      runas: ec2-user    
+      runas: root   
   script:
     - aws deploy push --application-name demo-code-deploy --s3-location s3://demo-code-deploy190723/code_file.zip --region ap-south-1
     - aws deploy create-deployment --application-name demo-code-deploy --s3-location bucket=demo-code-deploy190723,key=code_file.zip,bundleType=zip --deployment-group-name demo-code-deploy-group --deployment-config-name CodeDeployDefault.AllAtOnce
