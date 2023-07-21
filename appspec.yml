@@ -1,8 +1,8 @@
 version: 0.0
 os: ubuntu
 files:
-  - source: s3://demo-code-deploy190723/code_file.zip
-    destination: /opt/laravel/
+  - source: /
+    destination: /root/opt/laravel/
 hooks:
   BeforeInstall:
     - location: deploy/beforeinstall.sh
