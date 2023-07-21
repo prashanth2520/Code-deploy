@@ -17,8 +17,7 @@ jobs:
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-secret-arn: ${{ secrets.AWS_IAM_ARN }}
           aws-region: ap-south-1  
 
       - name: Build .zip archive
