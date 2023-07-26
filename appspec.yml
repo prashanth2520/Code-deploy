@@ -1,17 +1,19 @@
 version: 0.0
-os: ubuntu
+os: linux
+overwrite: true
 files:
   - source: /
-    destination: /root/opt/laravel/
+    destination: /home/ubuntu/opt/laravel/
+permissions:
+  - object: /home/ubuntu/opt/laravel/
+    owner: ubuntu
+    group: ubuntu
 hooks:
   BeforeInstall:
     - location: deploy/beforeinstall.sh
       timeout: 300
-      runas: root
+      runas: ubuntu
   AfterInstall:
     - location: deploy/afterinstall.sh
       timeout: 300
-      runas: root   
- 
-
-
+      runas: ubuntu   
