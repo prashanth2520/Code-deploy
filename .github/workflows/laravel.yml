@@ -33,5 +33,5 @@ jobs:
           
       - name: Trigger the code-deploy service
         run: |
-           aws deploy push --application-name Example --s3-location s3://example2607/source_file.zip --region ap-south-1
+           aws deploy push --application-name Example --s3-location s3://example2607/code-file.zip --region ap-south-1
            aws deploy create-deployment --application-name Example --s3-location bucket=example2607,key=code-file.zip,bundleType=zip --deployment-group-name Example-group --deployment-config-name CodeDeployDefault.AllAtOnce
