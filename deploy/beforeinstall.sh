@@ -8,7 +8,7 @@ sudo aws s3 cp s3://example2607/code-file.zip $app_path
 cd $app_path
 sudo unzip code-file.zip
 sudo rm code-file.zip
-sudo chmod -R 775 includes/
+sudo chmod -R 777 includes/
 cd $path
 sudo chown -R kevin:kevin Addval
 
