@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /opt/laravel/Demo-codedeploy
+cd /opt/laravel/Code-deploy
 git pull
 
 
