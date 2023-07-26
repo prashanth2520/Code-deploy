@@ -1,4 +1,3 @@
-
 name: Upload Staging Branch Code to S3
 
 on:
@@ -23,16 +22,16 @@ jobs:
 
       - name: Build .zip archive
         run: |
-          zip -r code_file.zip .
-          echo "Successfully created code_file.zip"
+          zip -r code-file.zip .
+          echo "Successfully created code-file.zip"
 
       - name: Upload .zip to S3
         run: |
-          aws s3 cp code_file.zip s3://demo-code-deploy190723/code_file.zip
-          echo "Uploaded code_file.zip to S3 bucket"
+          aws s3 cp code-file.zip s3://example2607/code-file.zip
+          echo "Uploaded code-file.zip to S3 bucket"
           
           
       - name: Trigger the code-deploy service
         run: |
-           aws deploy push --application-name Demoaddval-codedeploy --s3-location s3://demo-code-deploy190723/code_file.zip --region ap-south-1
-           aws deploy create-deployment --application-name Demoaddval-codedeploy --s3-location bucket=demo-code-deploy190723,key=code_file.zip,bundleType=zip --deployment-group-name Demoaddval-codedeploy-group --deployment-config-name CodeDeployDefault.AllAtOnce
+           aws deploy push --application-name Example --s3-location s3://example2607/source_file.zip --region ap-south-1
+           aws deploy create-deployment --application-name Example --s3-location bucket=example2607,key=code-file.zip,bundleType=zip --deployment-group-name Example-group --deployment-config-name CodeDeployDefault.AllAtOnce
