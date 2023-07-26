@@ -1,5 +1,10 @@
 #!/bin/bash
-cd /opt/laravel/Code-deploy
-git pull
+path=/opt/laravel/
+cd $path
+rm -r code-file
+aws s3 cp s3://example/code-file.zip
+unzip code-file.zip
+rm -r code-file.zip
+
 
 
