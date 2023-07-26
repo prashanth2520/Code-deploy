@@ -4,10 +4,6 @@ overwrite: true
 files:
   - source: /
     destination: /home/ubuntu/opt/laravel/
-permissions:
-  - object: /home/ubuntu/opt/laravel/
-    owner: ubuntu
-    group: ubuntu
 hooks:
   BeforeInstall:
     - location: deploy/beforeinstall.sh
