@@ -1,5 +1,3 @@
-#!/bin/bash/
-cd /opt/laravel/
-sudo mkdir demo001
+cd /home/ubuntu/opt/laravel/Demo-codedeploy/ && git pull
 
 
